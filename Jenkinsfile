@@ -24,13 +24,19 @@ pipeline{
       agent{
         label{
           label "dev"
-          customeWorkspace /mnt/t1
+          customeWorkspace "/mnt/t1"
         }
         
       }
       steps{
-        dir("rm -rf /mnt/t1"){
-          sh "git clone"
+        sh "rm -rf /mnt/t1/*"
+        dir("/mnt/t1/"){
+          sh "sudo git clone https://github.com/NishaPatil98/tomcat.git"
+          sh "sudo yum install docker -y"
+          sh "sudo systemctl start docker"
+          sh "sudo docker build -t tomcat:1.0 . "
+          sh "sudo docker run -itdp 8080:8080 tomcat:1.0 "
+          
         }
         
       
