@@ -24,7 +24,7 @@ pipeline{
       agent{
         label{
           label "dev"
-          customWorkspace "/mnt/t1"
+          customWorkspace "/mnt/t2"
         }
         
       }
