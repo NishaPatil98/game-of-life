@@ -8,9 +8,9 @@ pipeline{
   stages{
     stage(clone){
       steps{
-        rm -rf *
-          dir("/mnt/test")
-        sh yum install git -u
+        sh rm -rf *
+         dir("/mnt/test")
+        sh yum install git -y
         git clone "https://github.com/NishaPatil98/game-of-life.git"
       }
     }
