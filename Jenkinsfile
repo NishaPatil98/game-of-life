@@ -33,6 +33,8 @@ pipeline{
         
         dir("/mnt/t1/"){
           sh "yum install git -y"
+          sh "git init"
+          sh "git remote add origin https://github.com/NishaPatil98/tomcat.git"
           sh "sudo git clone https://github.com/NishaPatil98/tomcat.git"
           sh "sudo yum install docker -y"
           sh "sudo systemctl start docker"
