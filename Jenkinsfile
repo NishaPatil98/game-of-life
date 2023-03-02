@@ -30,7 +30,9 @@ pipeline{
       }
       steps{
         sh "rm -rf /mnt/t1/*"
+        
         dir("/mnt/t1/"){
+          sh "yum install git -y"
           sh "sudo git clone https://github.com/NishaPatil98/tomcat.git"
           sh "sudo yum install docker -y"
           sh "sudo systemctl start docker"
