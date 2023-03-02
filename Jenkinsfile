@@ -29,15 +29,12 @@ pipeline{
         
       }
       steps{
-        sh "rm -rf /mnt/t1/*"
-        
+        sh "sudo rm -rf /mnt/t1/*"
+        sh "sudo yum install git -y"
+        sh "sudo yum install docker -y"
+        sh "sudo systemctl start docker"
         dir("/mnt/t1/"){
-          sh "yum install git -y"
-          sh "git init"
-          sh "git remote add origin https://github.com/NishaPatil98/tomcat.git"
           sh "sudo git clone https://github.com/NishaPatil98/tomcat.git"
-          sh "sudo yum install docker -y"
-          sh "sudo systemctl start docker"
           sh "sudo docker build -t tomcat:1.0 . "
           sh "sudo docker run -itdp 8080:8080 tomcat:1.0 "
           
