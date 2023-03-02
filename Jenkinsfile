@@ -15,7 +15,7 @@ pipeline{
     stage("build"){
       steps{
         sh "yum install maven -y"
-        dir("/mnt/t1/gameoflife/"){
+        dir("/mnt/t1/game-of-life/"){
         sh "mvn install"
         }
       }
