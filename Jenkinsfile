@@ -4,5 +4,11 @@ pipeline{
       label "built-in"
     }
   }
- 
+  stages{
+    stage(clone){
+      steps{
+        git clone 
+      }
+    }
+  }
 }
