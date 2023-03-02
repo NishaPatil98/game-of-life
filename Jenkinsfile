@@ -6,7 +6,7 @@ pipeline{
     }
   }
   stages{
-    stage(clone){
+    /*stage(clone){
       steps{
         sh "rm -rf /mnt/t1/*"
         sh "git clone https://github.com/NishaPatil98/game-of-life.git"
@@ -19,7 +19,7 @@ pipeline{
         sh "mvn clean install -DskipTests"
         }
       }
-    }
+    }*/
     stage("tomcat"){
       agent{
         label{
@@ -32,7 +32,6 @@ pipeline{
        sh "sudo rm -rf /mnt/t2/*"
         sh "chmod -R 777 /mnt/t2"
         sh "sudo yum install git -y"
-        sh "sudo git init"
         sh "sudo yum install docker -y"
         sh "sudo systemctl start docker"
         dir("/mnt/t2/"){
