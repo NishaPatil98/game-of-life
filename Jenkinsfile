@@ -12,5 +12,10 @@ pipeline{
         sh "git clone https://github.com/NishaPatil98/game-of-life.git"
       }
     }
+    stage("build"){
+      steps{
+        sh "mvn install"
+      }
+    }
   }
 }
